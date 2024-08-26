@@ -24,7 +24,15 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js'],
+    ignores: [
+      'dist',
+      'node_modules',
+      'coverage',
+      'eslint.config.js',
+      'babel.config.cjs',
+      'jest.config.js',
+      'setup-tests.js'
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -34,6 +42,7 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.node,
         ...globals.es2020,
+        ...globals.jest,
       },
       parserOptions: {
         project: ['tsconfig.json', 'tsconfig.app.json', 'tsconfig.node.json'],
@@ -52,6 +61,12 @@ export default tseslint.config(
       'react/self-closing-comp': ['error', { component: true, html: true }],
       'max-lines': ['warn', { max: 124 }],
       'max-params': ['error', 3],
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ],
     },
   },
 );
